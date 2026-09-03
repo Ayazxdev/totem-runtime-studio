@@ -1,4 +1,4 @@
-# Totem Runtime Studio (Sentinel Runtime)
+# Totem Runtime Studio
 
 **A secure, local-first, Rust-based execution runtime for autonomous AI agent workflows.**
 
