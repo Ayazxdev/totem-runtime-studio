@@ -1,0 +1,24 @@
+[package]
+name    = "tool-manager"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+sentinel-core = { path = "../sentinel-core" }
+tokio.workspace       = true
+tracing.workspace     = true
+async-trait.workspace = true
+serde.workspace       = true
+serde_json.workspace  = true
+reqwest.workspace     = true
+dashmap.workspace     = true
+uuid.workspace        = true
+chrono.workspace      = true
+thiserror.workspace   = true
+ed25519-dalek.workspace = true
+rand.workspace          = true
+pqcrypto-dilithium      = { version = "0.5" }
+pqcrypto-traits         = { version = "0.3" }
+sha2.workspace          = true
+blake3.workspace        = true
+hex.workspace           = true

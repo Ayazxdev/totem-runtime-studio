@@ -1,0 +1,11 @@
+[package]
+name    = "evaluation"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+sentinel-core = { path = "../sentinel-core" }
+tokio.workspace       = true
+tracing.workspace     = true
+async-trait.workspace = true
+serde_json.workspace  = true
