@@ -1,0 +1,26 @@
+[package]
+name    = "api"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+sentinel-core = { path = "../sentinel-core" }
+scheduler     = { path = "../scheduler" }
+capsem        = { path = "../capsem" }
+tool-manager  = { path = "../tool-manager" }
+mcp           = { path = "../mcp" }
+a2a           = { path = "../a2a" }
+context       = { path = "../context" }
+audit         = { path = "../audit" }
+evaluation    = { path = "../evaluation" }
+recovery      = { path = "../recovery" }
+tokio.workspace       = true
+axum.workspace        = true
+tower.workspace       = true
+tower-http.workspace  = true
+tracing.workspace     = true
+serde.workspace       = true
+serde_json.workspace  = true
+uuid.workspace        = true
+tonic.workspace       = true
+prost.workspace       = true
