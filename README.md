@@ -178,20 +178,6 @@ Ed25519 for classical deployments; Dilithium3 (ML-DSA) via `pqcrypto-dilithium` 
 
 ---
 
-## Phase Status
-
-| Phase | Features                                                                                                                                                                                    |
-| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1     | Skeleton, end-to-end pipeline, Axum HTTP server                                                                                                                                             |
-| 2     | CAPSEM, Tool Manager, local/HTTP tools                                                                                                                                                      |
-| 3     | MCP integration (JSON-RPC, tool discovery)                                                                                                                                                  |
-| 4     | DAG parallel execution (Tokio JoinSet, timing proof)                                                                                                                                        |
-| 5     | Context compression, runtime metrics                                                                                                                                                        |
-| 6     | Audit hardening (BLAKE3), recovery stub                                                                                                                                                     |
-| **7** | **PQC attestation, A2A protocol, PRM pruning, GraphQL/gRPC transports, salience compression, rate limiting, per-action deny, checkpoint/restore, full audit coverage, real metrics wiring** |
-
----
-
 ## Testing
 
 ```bash
