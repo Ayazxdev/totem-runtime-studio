@@ -1,0 +1,144 @@
+# Rust / Cargo build artifacts
+
+/target/
+/target_bench/
+
+# Per-crate target directories (if any crate is built standalone)
+crates/*/target/
+
+# Cargo lock for libraries (keep for binaries — this is a binary workspace)
+# Cargo.lock is intentionally TRACKED for reproducible builds of the sentinel binary.
+# Do not add Cargo.lock here.
+
+# Cargo credential cache
+.cargo/credentials.toml
+.cargo/credentials
+
+
+# VS Code / Kiro
+.vscode/
+
+# JetBrains (RustRover, CLion, IntelliJ)
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Vim / Neovim
+*.swp
+*.swo
+*~
+.netrwhist
+
+# Emacs
+\#*\#
+.\#*
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+
+# OS-generated files
+
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Linux
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+
+# Environment & secrets
+
+
+# Environment variable files — never commit secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets.toml
+secrets.json
+
+# Ed25519 / PQC key material 
+*.keypair
+*.privkey
+*.pubkey
+
+
+# Logs & runtime output
+
+
+# Application logs
+*.log
+logs/
+audit_log.json
+audit_log.ndjson
+
+# Crash dumps
+*.dmp
+*.core
+
+
+# Test & benchmark artifacts
+
+
+# Criterion benchmark output
+criterion/
+
+# Coverage reports
+coverage/
+*.profraw
+*.profdata
+lcov.info
+tarpaulin-report.html
+tarpaulin-report.json
+
+
+# Documentation build output
+
+
+# rustdoc output (cargo doc)
+docs/api/
+doc/
+
+# mdBook output (if added later)
+book/
+
+
+# Docker / container
+
+
+.docker/
+docker-compose.override.yml
+
+
+# Miscellaneous
+
+
+# Temporary files
+*.tmp
+*.bak
+*.orig
+*.rej
+
+# Patch files
+*.patch

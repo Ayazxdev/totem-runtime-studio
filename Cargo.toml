@@ -1,0 +1,102 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/sentinel-core",
+    "crates/scheduler",
+    "crates/capsem",
+    "crates/tool-manager",
+    "crates/mcp",
+    "crates/mcp-test-server",
+    "crates/a2a",
+    "crates/context",
+    "crates/audit",
+    "crates/evaluation",
+    "crates/recovery",
+    "crates/api",
+    ".",
+]
+
+[workspace.package]
+version     = "0.1.0"
+edition     = "2021"
+authors     = ["Totem Runtime Studio Contributors"]
+license     = "MIT OR Apache-2.0"
+repository  = "https://github.com/totem-runtime-studio/sentinel-runtime"
+
+# Shared dependency versions — every crate references these with `workspace = true`
+[workspace.dependencies]
+# Async runtime
+tokio       = { version = "1", features = ["full"] }
+# HTTP framework
+axum        = { version = "0.7", features = ["json", "macros"] }
+tower       = { version = "0.4" }
+tower-http  = { version = "0.5", features = ["trace", "cors"] }
+# gRPC (stub-wired, not fully exercised until Phase 4+)
+tonic       = { version = "0.11" }
+prost       = { version = "0.12" }
+# Serialization
+serde       = { version = "1", features = ["derive"] }
+serde_json  = { version = "1" }
+# Unique identifiers
+uuid        = { version = "1", features = ["v4", "serde"] }
+# Time
+chrono      = { version = "0.4", features = ["serde"] }
+# Error handling
+thiserror   = { version = "1" }
+anyhow      = { version = "1" }
+# Logging / tracing
+tracing         = { version = "0.1" }
+tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt", "json"] }
+# Hashing (BLAKE3 for audit chain)
+blake3      = { version = "1" }
+# Async traits
+async-trait = { version = "0.1" }
+# HTTP client (for HTTP tool transport + MCP)
+reqwest     = { version = "0.12", features = ["json", "stream"] }
+# CLI
+clap        = { version = "4", features = ["derive"] }
+# Hex encoding (audit chain digests)
+hex         = { version = "0.4" }
+# Concurrent data structures
+dashmap     = { version = "5" }
+# futures utilities
+futures     = { version = "0.3" }
+tokio-stream = { version = "0.1" }
+# Ed25519 signing (classical)
+ed25519-dalek = { version = "2", features = ["serde", "rand_core"] }
+rand        = { version = "0.8" }
+# Post-quantum cryptography (Phase 7) — ML-DSA (CRYSTALS-Dilithium) via pqcrypto
+pqcrypto-dilithium = { version = "0.5" }
+pqcrypto-traits    = { version = "0.3" }
+# SHA-256 for PQC message digests
+sha2 = { version = "0.10" }
+
+[package]
+name        = "totem-runtime-studio"
+version.workspace = true
+edition.workspace = true
+
+[[bin]]
+name = "sentinel"
+path = "src/main.rs"
+
+[dependencies]
+sentinel-core  = { path = "crates/sentinel-core" }
+scheduler      = { path = "crates/scheduler" }
+capsem         = { path = "crates/capsem" }
+tool-manager   = { path = "crates/tool-manager" }
+mcp            = { path = "crates/mcp" }
+a2a            = { path = "crates/a2a" }
+context        = { path = "crates/context" }
+audit          = { path = "crates/audit" }
+evaluation     = { path = "crates/evaluation" }
+recovery       = { path = "crates/recovery" }
+api            = { path = "crates/api" }
+tokio.workspace     = true
+tracing.workspace   = true
+tracing-subscriber.workspace = true
+clap.workspace      = true
+anyhow.workspace    = true
+serde_json.workspace = true
+axum.workspace      = true
+sha2.workspace            = true
