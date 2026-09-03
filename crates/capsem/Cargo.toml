@@ -1,0 +1,15 @@
+[package]
+name    = "capsem"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+sentinel-core = { path = "../sentinel-core" }
+tokio.workspace       = true
+tracing.workspace     = true
+async-trait.workspace = true
+uuid.workspace        = true
+chrono.workspace      = true
+dashmap.workspace     = true
+thiserror.workspace   = true
+serde_json.workspace  = true
