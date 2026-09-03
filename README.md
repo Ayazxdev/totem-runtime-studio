@@ -2,7 +2,7 @@
 
 **A secure, local-first, Rust-based execution runtime for autonomous AI agent workflows.**
 
-Totem Runtime Studio is **not** another workflow builder. It is the **secure execution kernel** that runs underneath orchestration tools — comparable to how an OS kernel manages processes while higher-level tools manage them. Totem executes agent workflows **securely, observably, and reliably**.
+It is the **secure execution kernel** that runs underneath orchestration tools — comparable to how an OS kernel manages processes while higher-level tools manage them. Totem executes agent workflows **securely, observably, and reliably**.
 
 ---
 
