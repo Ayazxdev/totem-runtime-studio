@@ -1,0 +1,18 @@
+[package]
+name    = "recovery"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+sentinel-core = { path = "../sentinel-core" }
+tokio.workspace       = true
+tracing.workspace     = true
+async-trait.workspace = true
+thiserror.workspace   = true
+serde.workspace       = true
+serde_json.workspace  = true
+uuid.workspace        = true
+chrono.workspace      = true
+audit = { path = "../audit" }
+blake3.workspace      = true
+hex.workspace         = true
