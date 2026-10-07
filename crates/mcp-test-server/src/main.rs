@@ -48,7 +48,7 @@ async fn main() {
         .await
         .unwrap();
 
-    println!("🚀 MCP Test Server listening on http://127.0.0.1:3031");
+    println!("[+] MCP Test Server listening on http://127.0.0.1:3031");
 
     axum::serve(listener, app).await.unwrap();
 }

@@ -1,0 +1,12 @@
+{
+  "name": "Market Intelligence Task",
+  "description": "Execute parallel market analysis via MCP tools",
+  "actions": [
+    {
+      "tool_name": "echo",
+      "parameters": {
+        "input": "Hello Totem Sentinel!"
+      }
+    }
+  ]
+}

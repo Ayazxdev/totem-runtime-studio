@@ -42,32 +42,42 @@ async fn main() -> Result<()> {
         )
         .init();
 
-    eprintln!("   Totem Runtime Studio (Sentinel Runtime) starting...");
-    eprintln!("   Version : {}", env!("CARGO_PKG_VERSION"));
-    eprintln!("   HTTP    : http://{}", args.bind);
-    eprintln!("   gRPC    : {}", args.grpc_bind);
+    eprintln!("\x1b[36m");
+    eprintln!("   +---------------------------------------------------------------------------+");
+    eprintln!("   |   ████████╗ ██████╗ ████████╗███████╗███╗   ███╗                         |");
+    eprintln!("   |   ╚══██╔══╝██╔═══██╗╚══██╔══╝██╔════╝████╗ ████║                         |");
+    eprintln!("   |      ██║   ██║   ██║   ██║   █████╗  ██╔████╔██║                         |");
+    eprintln!("   |      ██║   ██║   ██║   ██║   ██╔══╝  ██║╚██╔╝██║                         |");
+    eprintln!("   |      ██║   ╚██████╔╝   ██║   ███████╗██║ ╚═╝ ██║                         |");
+    eprintln!("   |      ╚═╝    ╚═════╝    ╚═╝   ╚══════╝╚═╝     ╚═╝                         |");
+    eprintln!("   |   R U N T I M E   S T U D I O   |   S E N T I N E L   E N G I N E        |");
+    eprintln!("   +---------------------------------------------------------------------------+");
+    eprintln!("\x1b[0m");
+    eprintln!("   [+] Version : {}", env!("CARGO_PKG_VERSION"));
+    eprintln!("   [+] HTTP    : http://{}", args.bind);
+    eprintln!("   [+] gRPC    : {}", args.grpc_bind);
     tracing::info!(
-        "🚀 Totem Runtime Studio v{} — HTTP:{} gRPC:{}",
+        "Totem Runtime Studio v{} - HTTP:{} gRPC:{}",
         env!("CARGO_PKG_VERSION"),
         args.bind,
         args.grpc_bind
     );
 
-    // Build runtime context — all subsystems wired here, shared across HTTP + gRPC
+    // Build runtime context - all subsystems wired here, shared across HTTP + gRPC
     let ctx = Arc::new(RuntimeContext::with_bind(Some(args.bind.clone())));
 
     let http_app  = api::http::app(Arc::clone(&ctx));
     let http_listener = tokio::net::TcpListener::bind(&args.bind).await?;
 
-    eprintln!("✓ Ready. HTTP endpoints:");
-    eprintln!("   POST http://{}/execute                   — execute task workflow", args.bind);
-    eprintln!("   GET  http://{}/audit                     — hash-chained audit trail", args.bind);
-    eprintln!("   GET  http://{}/health                    — health + version", args.bind);
-    eprintln!("   GET  http://{}/tools                     — registered tool list", args.bind);
-    eprintln!("   GET  http://{}/.well-known/agent.json    — A2A Agent Card", args.bind);
-    eprintln!("✓ gRPC endpoints:");
-    eprintln!("   /sentinel.Runtime/ExecuteTask            — execute task");
-    eprintln!("   /sentinel.Runtime/GetAuditLog            — audit log");
+    eprintln!("   [+] Ready. HTTP endpoints:");
+    eprintln!("       POST http://{}/execute                   -> execute task workflow", args.bind);
+    eprintln!("       GET  http://{}/audit                     -> hash-chained audit trail", args.bind);
+    eprintln!("       GET  http://{}/health                    -> health + version", args.bind);
+    eprintln!("       GET  http://{}/tools                     -> registered tool list", args.bind);
+    eprintln!("       GET  http://{}/.well-known/agent.json    -> A2A Agent Card", args.bind);
+    eprintln!("   [+] gRPC endpoints:");
+    eprintln!("       /sentinel.Runtime/ExecuteTask            -> execute task");
+    eprintln!("       /sentinel.Runtime/GetAuditLog            -> audit log");
 
     // Run HTTP and gRPC concurrently — both use the same RuntimeContext
     let grpc_addr  = args.grpc_bind.clone();
